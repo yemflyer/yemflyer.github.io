@@ -1,103 +1,188 @@
 /* Reset default styles: reset margins and paddings ,setting a font and defining colors */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Body style */
-  body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
-    padding: 20px;
-  }
-  
-  /* Main container */
-  main {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-    /* Header style */
-  nav {
-    background-color: #333;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  nav a {
-    color: #fff;
-    margin: 0 15px;
-    text-decoration: none;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body style */
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 20px;
+}
+
+/* Main container - now using Flexbox */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Header style */
+nav {
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Section styles: style the contact form */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Make it responsive with Media Queries
+🧠 Why:
+You want your site to look great on phones and desktops.
+*/
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-    /* Section styles: style the contact form */
-  form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  .project-card, .contact-form {
+    width: 48%;
   }
-  
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  input[type="submit"] {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  /* Make it responsive */
+}
 
-  @media (max-width: 600px) {
-    nav a {
-      display: block;
-      margin: 10px 0;
-    }
-  
-    body {
-      padding: 10px;
-    }
-  }
-  
-    /* Importing Google Fonts */
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
-  
-    /* Adding a Google Font: Dark mode(optional)*/
-  :root {
+
+/* Part 6: Style Your Contact Form
+🧠 Why:
+It needs to look good and be user-friendly. */
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Part 7: Add Dark Mode Toggle
+/* ======================
+   DARK MODE IMPLEMENTATION
+   🧠 Why:
+   1. Respects OS-level preference by default
+   2. Allows manual override for user control
+   3. Maintains accessibility and visual consistency
+   ====================== */
+
+/* ----------------------
+   BASE COLOR VARIABLES
+   ---------------------- */
+   :root {
+    /* Light mode defaults */
     --bg-color: #f9f9f9;
     --text-color: #333;
+    
+    /* Navigation (constant in both modes) */
+    --nav-bg: #333;
+    --nav-text: #fff;
   }
   
+  /* ----------------------
+     AUTO DARK MODE (OS PREFERENCE)
+     ---------------------- */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-color: #121212;  /* Darker background */
+      --text-color: #f2f2f2; /* Softer white for better readability */
+    }
+  }
+  
+  /* ----------------------
+     MANUAL TOGGLE OVERRIDE
+     ---------------------- */
+  body.dark-mode {
+    --bg-color: #1e1e1e !important;    /* Slightly lighter than auto dark */
+    --text-color: #f9f9f9 !important;  /* Pure white for clear contrast */
+  }
+  
+  /* ----------------------
+     ELEMENT APPLICATIONS
+     ---------------------- */
   body {
     background-color: var(--bg-color);
     color: var(--text-color);
+    transition: background-color 0.3s ease; /* Smooth mode transition */
   }
   
-  /* Dark mode toggle */
-  body.dark-mode {
-    --bg-color: #1e1e1e;
-    --text-color: #f9f9f9;
+  nav {
+    background-color: var(--nav-bg); /* Stays consistent in both modes */
   }
   
+  nav a {
+    color: var(--nav-text);
+  }
+  
+  /* ----------------------
+     TOGGLE BUTTON STYLING
+     ---------------------- */
+  #darkModeToggle {
+    background: transparent;
+    border: none;
+    color: var(--nav-text);
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: auto;    /* Auto-margins push to far right */
+    padding: 0 15px;      /* Match your nav link spacing */
+    transition: transform 0.2s ease;
+  }
+  
+  #darkModeToggle:hover {
+    transform: scale(1.1); /* Subtle interactive feedback */
+  }
