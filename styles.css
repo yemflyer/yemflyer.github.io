@@ -1,0 +1,103 @@
+/* Reset default styles: reset margins and paddings ,setting a font and defining colors */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body style */
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+  }
+  
+  /* Main container */
+  main {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+    /* Header style */
+  nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+    /* Section styles: style the contact form */
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input[type="submit"] {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Make it responsive */
+
+  @media (max-width: 600px) {
+    nav a {
+      display: block;
+      margin: 10px 0;
+    }
+  
+    body {
+      padding: 10px;
+    }
+  }
+  
+    /* Importing Google Fonts */
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+    /* Adding a Google Font: Dark mode(optional)*/
+  :root {
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  
+  /* Dark mode toggle */
+  body.dark-mode {
+    --bg-color: #1e1e1e;
+    --text-color: #f9f9f9;
+  }
+  
