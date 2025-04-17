@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 40px;
+    background-color: #f7f7f7;
+    color: #333;
+  }
+  
+  .testimonial-section {
+    text-align: center; /* centers the section title */
+    margin-bottom: 40px;
+  }
+  
+  .testimonial-container {
+    display: flex;
+    justify-content: center;   /* aligns cards horizontally */
+    gap: 20px;
+    flex-wrap: wrap;           /* wraps cards on small screens */
+  }
+  
+  /* Testimonial Card Styles 
+  how you structure and align content within each card:
+    - Use flexbox to stack content vertically and center it horizontally.
+    - Ensure the image is circular and centered above the text.
+    - Use padding and margin to create space between elements.
+    - Use a box shadow for a subtle 3D effect.
+    - Use a border radius for rounded corners.
+    - Use a consistent color scheme for text and background.
+ */
+*/
+
+  .testimonial-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+/* box-shadow for a subtle 3D effect */
+    display: flex;
+    flex-direction: column;         /* stack content vertically */
+    align-items: center;            /* center items horizontally */
+    text-align: center;
+  }
+  
+  .testimonial-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;             /* makes image circular */
+    margin-bottom: 15px;
+  }
+  
+  .testimonial-card p {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial-card h4 {
+    margin: 0;
+    font-weight: bold;
+    color: #444;
+  }
+  
+/* Responsive Design */
+  @media (max-width: 600px) {
+    .testimonial-card {
+      width: 100%;
+    }
+  
+    .testimonial-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
